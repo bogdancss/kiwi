@@ -1,0 +1,41 @@
+@import '../assets/variables';
+
+.promo-box {
+  display: inline-block;
+  text-align: center;
+  margin-right: 30px;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: $mobile) and (max-width: $tablet) {
+    width: calc(100% / 2 - 20px);
+
+    &:nth-of-type(2) {
+      margin-right: 0;
+    }
+  }
+  @media (min-width: $tablet) {
+    width: calc(100% / 3 - 20px);
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+
+    @media (min-width: $mobile) and (max-width: $tablet) {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    font-size: 1.2em;
+
+    @media (min-width: $mobile) {
+      font-size: 1em;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+}

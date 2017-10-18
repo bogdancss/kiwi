@@ -1,0 +1,165 @@
+@import '../assets/variables';
+
+.header {
+  &__header {
+    background: $darkGrey;
+    padding: 10px 20px;
+
+    @media (min-width: $mobile) {
+      padding: 10px 30px;
+    }
+    @media (min-width: $tablet) {
+      padding: 10px 50px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    vertical-align: middle;
+    color: $brightOrange;
+    margin: 20px 0 20px 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: all .2s ease;
+
+    @media (min-width: $mobile) {
+      font-size: 1.4em;
+      margin: 20px 0 20px 20px;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 40px;
+    background-color: $murkyOrange;
+    -webkit-mask-image: url('../assets/kiwi.svg');
+    mask-image: url('../assets/kiwi.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: all .2s ease;
+
+    @media (min-width: $mobile) {
+      width: 60px;
+      height: 50px;
+    }
+  }
+
+  &__home-link {
+    &:hover {
+      .header__title {
+        color: $murkyOrange;
+      }
+      .header__logo {
+        background-color: $brightOrange;
+      }
+    }
+  }
+
+  &__nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all .4s ease;
+
+    &.expanded {
+      opacity: 1;
+      max-height: 50px;
+    }
+  }
+
+  &__nav-button {
+    width: 25px;
+    height: 18px;
+    position: relative;
+    top: 25px;
+    float: right;
+    cursor: pointer;
+    transition: all .2s ease-out;
+
+    &:hover {
+      span {
+        background: $murkyOrange;
+      }
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $brightOrange;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: all .25s ease-out;
+
+      &:first-of-type {
+        top: 2px;
+      }
+      &:nth-of-type(2) {
+        top: 8px;
+      }
+      &:nth-of-type(3) {
+        top: 14px;
+      }
+    }
+
+    &.open {
+      span {
+        &:first-of-type {
+          top: 8px;
+          transform: rotate(-135deg);
+        }
+        &:nth-of-type(2) {
+          opacity: 0;
+          left: 20px;
+        }
+        &:nth-of-type(3) {
+          top: 8px;
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+  &__nav-item {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 0;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $lightGrey;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: -5px;
+        bottom: 7px;
+        width: 0;
+        height: 2px;
+        background: $murkyOrange;
+        transition: all .2s ease;
+      }
+
+      &:hover {
+        &:after {
+          width: calc(100% + 10px);
+        }
+      }
+    }
+  }
+}

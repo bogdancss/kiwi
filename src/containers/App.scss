@@ -1,0 +1,21 @@
+@import '../assets/variables';
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  background: $backgroundGrey;
+  color: $lightGrey;
+  height: 100%;
+}
+
+.page-content {
+  padding: 0 20px;
+  max-width: 1040px;
+  margin: 0 auto 50px;
+
+  @media (min-width: $mobile) {
+    padding: 0 30px;
+  }
+  @media (min-width: $tablet) {
+    padding: 0 50px;
+  }
+}
